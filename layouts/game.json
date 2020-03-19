@@ -62,7 +62,7 @@
               "sprites": [
                 {
                   "hasCustomCollisionMask": false,
-                  "image": "plane.png",
+                  "image": "resources\\plane.png",
                   "points": [],
                   "originPoint": {
                     "name": "origine",

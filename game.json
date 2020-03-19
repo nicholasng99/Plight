@@ -14,7 +14,7 @@
     "macExecutableFilename": "",
     "orientation": "landscape",
     "packageName": "com.nicholas.plight",
-    "projectFile": "C:\\Users\\Nick\\Documents\\GDevelop projects\\Plight\\game.json",
+    "projectFile": "C:\\Users\\Nick\\Documents\\GitThings\\Plight\\game.json",
     "scaleMode": "linear",
     "sizeOnStartupMode": "adaptWidth",
     "useExternalSourceFiles": false,
@@ -107,6 +107,15 @@
         "kind": "image",
         "metadata": "",
         "name": "plane.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/plane.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\plane.png",
         "smoothed": true,
         "userAdded": true
       }
