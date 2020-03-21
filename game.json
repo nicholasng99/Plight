@@ -103,21 +103,39 @@
     "resources": [
       {
         "alwaysLoaded": false,
-        "file": "plane.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "plane.png",
-        "smoothed": true,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
         "file": "resources/plane.png",
         "kind": "image",
         "metadata": "",
         "name": "resources\\plane.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/bg.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\bg.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/wind.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\wind.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/wind-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\wind-1.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -128,11 +146,24 @@
   "layouts": [
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/layouts/menu"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/layouts/game"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/layouts/gameover"
     }
   ],
   "externalEvents": [],
-  "eventsFunctionsExtensions": [],
+  "eventsFunctionsExtensions": [
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/stayonscreen"
+    }
+  ],
   "externalLayouts": [],
   "externalSourceFiles": []
 }
