@@ -47,21 +47,12 @@
       "locked": false,
       "name": "Plane",
       "width": 200,
-      "x": 300,
-      "y": 300,
+      "x": 350,
+      "y": 250,
       "zOrder": 1,
       "numberProperties": [],
       "stringProperties": [],
-      "initialVariables": [
-        {
-          "name": "angle",
-          "value": "0"
-        },
-        {
-          "name": "force",
-          "value": "0"
-        }
-      ]
+      "initialVariables": []
     },
     {
       "angle": 0,
@@ -114,15 +105,28 @@
       "tags": "",
       "type": "Sprite",
       "updateIfNotVisible": false,
-      "variables": [],
+      "variables": [
+        {
+          "name": "xCoord",
+          "value": "350"
+        },
+        {
+          "name": "dead",
+          "value": "0"
+        },
+        {
+          "name": "blown",
+          "value": "0"
+        }
+      ],
       "behaviors": [
         {
+          "gravity": 1,
           "name": "PlatformerObject",
           "type": "PlatformBehavior::PlatformerObjectBehavior",
           "acceleration": 1500,
           "canGrabPlatforms": false,
           "deceleration": 1500,
-          "gravity": 5,
           "ignoreDefaultControls": true,
           "jumpSpeed": 600,
           "maxFallingSpeed": 50,
@@ -143,7 +147,7 @@
               "timeBetweenFrames": 0.08,
               "sprites": [
                 {
-                  "hasCustomCollisionMask": false,
+                  "hasCustomCollisionMask": true,
                   "image": "..\\Plight_Demo\\resources\\plane.png",
                   "points": [],
                   "originPoint": {
@@ -157,7 +161,22 @@
                     "x": 0,
                     "y": 0
                   },
-                  "customCollisionMask": []
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 127,
+                        "y": 40.5
+                      },
+                      {
+                        "x": 516,
+                        "y": 112.5
+                      },
+                      {
+                        "x": 193,
+                        "y": 286.5
+                      }
+                    ]
+                  ]
                 }
               ]
             }
@@ -231,7 +250,7 @@
               "timeBetweenFrames": 0.08,
               "sprites": [
                 {
-                  "hasCustomCollisionMask": false,
+                  "hasCustomCollisionMask": true,
                   "image": "..\\Plight_Demo\\resources\\hoopBox.png",
                   "points": [],
                   "originPoint": {
@@ -245,7 +264,26 @@
                     "x": 0,
                     "y": 0
                   },
-                  "customCollisionMask": []
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 64,
+                        "y": 0
+                      },
+                      {
+                        "x": 64,
+                        "y": 64
+                      },
+                      {
+                        "x": 0,
+                        "y": 64
+                      }
+                    ]
+                  ]
                 }
               ]
             }
@@ -270,7 +308,7 @@
               "timeBetweenFrames": 0.08,
               "sprites": [
                 {
-                  "hasCustomCollisionMask": false,
+                  "hasCustomCollisionMask": true,
                   "image": "..\\Plight_Demo\\resources\\hoopBox.png",
                   "points": [],
                   "originPoint": {
@@ -284,7 +322,26 @@
                     "x": 0,
                     "y": 0
                   },
-                  "customCollisionMask": []
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 64,
+                        "y": 0
+                      },
+                      {
+                        "x": 64,
+                        "y": 64
+                      },
+                      {
+                        "x": 0,
+                        "y": 64
+                      }
+                    ]
+                  ]
                 }
               ]
             }
@@ -309,7 +366,7 @@
               "timeBetweenFrames": 0.08,
               "sprites": [
                 {
-                  "hasCustomCollisionMask": false,
+                  "hasCustomCollisionMask": true,
                   "image": "..\\Plight_Demo\\resources\\gust.png",
                   "points": [],
                   "originPoint": {
@@ -323,7 +380,26 @@
                     "x": 0,
                     "y": 0
                   },
-                  "customCollisionMask": []
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 75,
+                        "y": 120
+                      },
+                      {
+                        "x": 285,
+                        "y": 60
+                      },
+                      {
+                        "x": 285,
+                        "y": 260
+                      },
+                      {
+                        "x": 75,
+                        "y": 200
+                      }
+                    ]
+                  ]
                 }
               ]
             }
@@ -360,10 +436,46 @@
           "parameters": [
             "Plane",
             "=",
-            "350"
+            "min(Plane.Variable(xCoord),Plane.X())"
           ],
           "subInstructions": []
         },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarObjet"
+          },
+          "parameters": [
+            "Plane",
+            "xCoord",
+            "-",
+            "0.1"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "VarObjet"
+          },
+          "parameters": [
+            "Plane",
+            "dead",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
         {
           "type": {
             "inverted": false,
@@ -372,7 +484,7 @@
           "parameters": [
             "Plane",
             "Plane.Direction()",
-            "100",
+            "300",
             ""
           ],
           "subInstructions": []
@@ -388,11 +500,13 @@
         {
           "type": {
             "inverted": false,
-            "value": "PlatformBehavior::IsFalling"
+            "value": "VarObjet"
           },
           "parameters": [
             "Plane",
-            "PlatformerObject"
+            "blown",
+            "=",
+            "0"
           ],
           "subInstructions": []
         }
@@ -406,7 +520,7 @@
           "parameters": [
             "Plane",
             "90",
-            "20",
+            "15",
             ""
           ],
           "subInstructions": []
@@ -432,9 +546,35 @@
             ""
           ],
           "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "VarObjet"
+          },
+          "parameters": [
+            "Plane",
+            "dead",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
         }
       ],
       "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarObjet"
+          },
+          "parameters": [
+            "Plane",
+            "blown",
+            "=",
+            "1"
+          ],
+          "subInstructions": []
+        },
         {
           "type": {
             "inverted": false,
@@ -458,6 +598,127 @@
             "Gust.Angle()",
             "500",
             ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarObjet"
+          },
+          "parameters": [
+            "Plane",
+            "xCoord",
+            "+",
+            "0.5"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ResetObjectTimer"
+          },
+          "parameters": [
+            "Plane",
+            "\"fallTimer\""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "ObjectTimer"
+          },
+          "parameters": [
+            "Plane",
+            "\"fallTimer\"",
+            "0.5"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarObjet"
+          },
+          "parameters": [
+            "Plane",
+            "blown",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "VarObjet"
+          },
+          "parameters": [
+            "Plane",
+            "dead",
+            "=",
+            "1"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "AddForceXY"
+          },
+          "parameters": [
+            "Plane",
+            "GlobalVariable(wind)",
+            "0",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "RotateTowardAngle"
+          },
+          "parameters": [
+            "Plane",
+            "90",
+            "abs(Plane.Angle())*2",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "AddForceAL"
+          },
+          "parameters": [
+            "Plane",
+            "Plane.Direction()",
+            "9.81",
+            "1"
           ],
           "subInstructions": []
         }
@@ -493,6 +754,18 @@
             "Gust.Direction()",
             "700",
             "0"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangeDirection"
+          },
+          "parameters": [
+            "Gust",
+            "*",
+            "1.1"
           ],
           "subInstructions": []
         }
@@ -730,7 +1003,7 @@
           },
           "parameters": [
             "Hoop",
-            "-100",
+            "GlobalVariable(wind)",
             "0",
             "0"
           ],
@@ -751,7 +1024,7 @@
           },
           "parameters": [
             "",
-            "3",
+            "5",
             "hoopTimer"
           ],
           "subInstructions": []
@@ -775,7 +1048,7 @@
             "",
             "HoopTop",
             "SceneWindowWidth()",
-            "RandomInRange(20, SceneWindowHeight()-200-20)",
+            "RandomInRange(50, SceneWindowHeight()-230-50)",
             ""
           ],
           "subInstructions": []
@@ -789,7 +1062,7 @@
             "",
             "HoopBot",
             "SceneWindowWidth()",
-            "HoopTop.Y()+150",
+            "HoopTop.Y()+180",
             ""
           ],
           "subInstructions": []
@@ -802,7 +1075,7 @@
           "parameters": [
             "Hoop",
             "=",
-            "50"
+            "25"
           ],
           "subInstructions": []
         },
@@ -814,7 +1087,7 @@
           "parameters": [
             "Hoop",
             "=",
-            "50"
+            "25"
           ],
           "subInstructions": []
         },
@@ -881,6 +1154,56 @@
             "Background",
             "=",
             "SceneWindowHeight()"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "CollisionNP"
+          },
+          "parameters": [
+            "Plane",
+            "Hoop",
+            "",
+            "",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "AddForceAL"
+          },
+          "parameters": [
+            "Plane",
+            "180-Plane.Direction()",
+            "90",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarObjet"
+          },
+          "parameters": [
+            "Plane",
+            "dead",
+            "=",
+            "1"
           ],
           "subInstructions": []
         }
