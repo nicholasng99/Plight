@@ -360,7 +360,7 @@
           "parameters": [
             "Plane",
             "=",
-            "300"
+            "350"
           ],
           "subInstructions": []
         },
@@ -443,7 +443,7 @@
           "parameters": [
             "Plane",
             "Gust.Angle()*1.5",
-            "60",
+            "120",
             ""
           ],
           "subInstructions": []
@@ -571,6 +571,71 @@
           "parameters": [
             "Player",
             "gustTimer"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Toujours"
+          },
+          "parameters": [
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Opacity"
+          },
+          "parameters": [
+            "Gust",
+            "-",
+            "10"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Opacity"
+          },
+          "parameters": [
+            "Gust",
+            "<=",
+            "0"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Delete"
+          },
+          "parameters": [
+            "Gust",
+            ""
           ],
           "subInstructions": []
         }
@@ -803,7 +868,7 @@
           "parameters": [
             "Background",
             "=",
-            "SceneWindowWidth()"
+            "SceneWindowWidth()+100"
           ],
           "subInstructions": []
         },
