@@ -868,7 +868,7 @@
           "parameters": [
             "Background",
             "=",
-            "SceneWindowWidth()+100"
+            "SceneWindowWidth()"
           ],
           "subInstructions": []
         },
