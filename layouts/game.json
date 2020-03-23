@@ -65,7 +65,7 @@
     },
     {
       "angle": 0,
-      "customSize": true,
+      "customSize": false,
       "height": 600,
       "layer": "",
       "locked": false,
@@ -117,6 +117,8 @@
       "variables": [],
       "behaviors": [
         {
+          "name": "PlatformerObject",
+          "type": "PlatformBehavior::PlatformerObjectBehavior",
           "acceleration": 1500,
           "canGrabPlatforms": false,
           "deceleration": 1500,
@@ -125,10 +127,8 @@
           "jumpSpeed": 600,
           "maxFallingSpeed": 50,
           "maxSpeed": 250,
-          "name": "PlatformerObject",
           "roundCoordinates": true,
           "slopeMaxAngle": 60,
-          "type": "PlatformBehavior::PlatformerObjectBehavior",
           "xGrabTolerance": 10,
           "yGrabOffset": 0
         }
@@ -143,13 +143,13 @@
               "timeBetweenFrames": 0.08,
               "sprites": [
                 {
-                  "hasCustomCollisionMask": true,
-                  "image": "resources\\plane.png",
+                  "hasCustomCollisionMask": false,
+                  "image": "..\\Plight_Demo\\resources\\plane.png",
                   "points": [],
                   "originPoint": {
                     "name": "origine",
-                    "x": 320,
-                    "y": 164
+                    "x": 0,
+                    "y": 0
                   },
                   "centerPoint": {
                     "automatic": true,
@@ -157,22 +157,7 @@
                     "x": 0,
                     "y": 0
                   },
-                  "customCollisionMask": [
-                    [
-                      {
-                        "x": 127,
-                        "y": 38.5
-                      },
-                      {
-                        "x": 510,
-                        "y": 113.5
-                      },
-                      {
-                        "x": 191,
-                        "y": 287.5
-                      }
-                    ]
-                  ]
+                  "customCollisionMask": []
                 }
               ]
             }
@@ -184,7 +169,7 @@
       "height": 32,
       "name": "Background",
       "tags": "",
-      "texture": "resources\\bg.png",
+      "texture": "..\\Plight_Demo\\resources\\bg.png",
       "type": "TiledSpriteObject::TiledSprite",
       "width": 32,
       "variables": [],
@@ -208,18 +193,18 @@
               "sprites": [
                 {
                   "hasCustomCollisionMask": false,
-                  "image": "resources\\wind-1.png",
+                  "image": "..\\Plight_Demo\\resources\\wind-1.png",
                   "points": [],
                   "originPoint": {
                     "name": "origine",
                     "x": 0,
-                    "y": 190
+                    "y": 0
                   },
                   "centerPoint": {
-                    "automatic": false,
+                    "automatic": true,
                     "name": "centre",
-                    "x": 160,
-                    "y": 160
+                    "x": 0,
+                    "y": 0
                   },
                   "customCollisionMask": []
                 }
@@ -247,7 +232,7 @@
               "sprites": [
                 {
                   "hasCustomCollisionMask": false,
-                  "image": "resources\\hoopBox.png",
+                  "image": "..\\Plight_Demo\\resources\\hoopBox.png",
                   "points": [],
                   "originPoint": {
                     "name": "origine",
@@ -286,7 +271,7 @@
               "sprites": [
                 {
                   "hasCustomCollisionMask": false,
-                  "image": "resources\\hoopBox.png",
+                  "image": "..\\Plight_Demo\\resources\\hoopBox.png",
                   "points": [],
                   "originPoint": {
                     "name": "origine",
@@ -324,13 +309,13 @@
               "timeBetweenFrames": 0.08,
               "sprites": [
                 {
-                  "hasCustomCollisionMask": true,
-                  "image": "resources\\gust.png",
+                  "hasCustomCollisionMask": false,
+                  "image": "..\\Plight_Demo\\resources\\gust.png",
                   "points": [],
                   "originPoint": {
                     "name": "origine",
-                    "x": 160,
-                    "y": 160
+                    "x": 0,
+                    "y": 0
                   },
                   "centerPoint": {
                     "automatic": true,
@@ -338,26 +323,7 @@
                     "x": 0,
                     "y": 0
                   },
-                  "customCollisionMask": [
-                    [
-                      {
-                        "x": 65,
-                        "y": 120
-                      },
-                      {
-                        "x": 255,
-                        "y": 80
-                      },
-                      {
-                        "x": 255,
-                        "y": 260
-                      },
-                      {
-                        "x": 65,
-                        "y": 200
-                      }
-                    ]
-                  ]
+                  "customCollisionMask": []
                 }
               ]
             }
@@ -505,7 +471,7 @@
       "creationTime": 0,
       "disabled": false,
       "folded": false,
-      "name": "Gust",
+      "name": "Wind",
       "source": "",
       "type": "BuiltinCommonInstructions::Group",
       "events": [],
@@ -618,7 +584,7 @@
       "creationTime": 0,
       "disabled": false,
       "folded": false,
-      "name": "Wind",
+      "name": "Face",
       "source": "",
       "type": "BuiltinCommonInstructions::Group",
       "events": [],
@@ -637,9 +603,9 @@
           },
           "parameters": [
             "Player",
-            "MouseX(, )",
-            "MouseY(, )",
-            "100",
+            "max(MouseX(),160)",
+            "MouseY()",
+            "360",
             ""
           ],
           "subInstructions": []
@@ -663,9 +629,9 @@
           },
           "parameters": [
             "Player",
-            "MouseX()",
+            "0",
             "MouseY()",
-            "1000",
+            "1500",
             "0"
           ],
           "subInstructions": []
@@ -795,6 +761,61 @@
           "parameters": [
             "",
             "hoopTimer"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "disabled": false,
+      "folded": false,
+      "name": "Others",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [],
+      "parameters": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "TiledSpriteObject::Width"
+          },
+          "parameters": [
+            "Background",
+            "=",
+            "SceneWindowWidth()"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "TiledSpriteObject::Height"
+          },
+          "parameters": [
+            "Background",
+            "=",
+            "SceneWindowHeight()"
           ],
           "subInstructions": []
         }

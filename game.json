@@ -14,7 +14,7 @@
     "macExecutableFilename": "",
     "orientation": "landscape",
     "packageName": "com.nicholas.plight",
-    "projectFile": "C:\\Users\\Nick\\Documents\\GitThings\\Plight\\game.json",
+    "projectFile": "C:\\Users\\Nick\\Documents\\GitThings\\Plight_Demo\\game.json",
     "scaleMode": "linear",
     "sizeOnStartupMode": "adaptWidth",
     "useExternalSourceFiles": false,
@@ -103,66 +103,48 @@
     "resources": [
       {
         "alwaysLoaded": false,
-        "file": "resources/plane.png",
+        "file": "../Plight_Demo/resources/plane.png",
         "kind": "image",
         "metadata": "",
-        "name": "resources\\plane.png",
-        "smoothed": true,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "resources/bg.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "resources\\bg.png",
-        "smoothed": true,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "resources/wind.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "resources\\wind.png",
-        "smoothed": true,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "resources/wind-1.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "resources\\wind-1.png",
+        "name": "..\\Plight_Demo\\resources\\plane.png",
         "smoothed": true,
         "userAdded": false
       },
       {
         "alwaysLoaded": false,
-        "file": "resources/hoopBox.png",
+        "file": "../Plight_Demo/resources/bg.png",
         "kind": "image",
         "metadata": "",
-        "name": "resources\\hoopBox.png",
+        "name": "..\\Plight_Demo\\resources\\bg.png",
         "smoothed": true,
-        "userAdded": true
+        "userAdded": false
       },
       {
         "alwaysLoaded": false,
-        "file": "resources/wind-1-0.png",
+        "file": "../Plight_Demo/resources/wind-1.png",
         "kind": "image",
         "metadata": "",
-        "name": "resources\\wind-1-0.png",
+        "name": "..\\Plight_Demo\\resources\\wind-1.png",
         "smoothed": true,
-        "userAdded": true
+        "userAdded": false
       },
       {
         "alwaysLoaded": false,
-        "file": "resources/gust.png",
+        "file": "../Plight_Demo/resources/hoopBox.png",
         "kind": "image",
         "metadata": "",
-        "name": "resources\\gust.png",
+        "name": "..\\Plight_Demo\\resources\\hoopBox.png",
         "smoothed": true,
-        "userAdded": true
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../Plight_Demo/resources/gust.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "..\\Plight_Demo\\resources\\gust.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
