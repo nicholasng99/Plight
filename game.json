@@ -154,7 +154,7 @@
   "variables": [
     {
       "name": "wind",
-      "value": "-100"
+      "value": "-150"
     },
     {
       "name": "money",

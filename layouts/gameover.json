@@ -26,9 +26,92 @@
   },
   "objectsGroups": [],
   "variables": [],
-  "instances": [],
-  "objects": [],
-  "events": [],
+  "instances": [
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "layer": "",
+      "locked": false,
+      "name": "Restart",
+      "width": 0,
+      "x": 500,
+      "y": 300,
+      "zOrder": 1,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    }
+  ],
+  "objects": [
+    {
+      "bold": false,
+      "italic": false,
+      "name": "Restart",
+      "smoothed": true,
+      "tags": "",
+      "type": "TextObject::Text",
+      "underlined": false,
+      "variables": [],
+      "behaviors": [],
+      "string": "Restart",
+      "font": "",
+      "characterSize": 20,
+      "color": {
+        "b": 0,
+        "g": 0,
+        "r": 0
+      }
+    }
+  ],
+  "events": [
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "MouseButtonReleased"
+          },
+          "parameters": [
+            "",
+            "Left"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "SourisSurObjet"
+          },
+          "parameters": [
+            "Restart",
+            "",
+            "",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Scene"
+          },
+          "parameters": [
+            "",
+            "\"Game\"",
+            "yes"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    }
+  ],
   "layers": [
     {
       "name": "",

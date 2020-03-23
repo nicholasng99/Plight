@@ -154,7 +154,11 @@
   "variables": [
     {
       "name": "wind",
-      "value": "-100"
+      "value": "-150"
+    },
+    {
+      "name": "money",
+      "value": "0"
     }
   ],
   "layouts": [
@@ -426,6 +430,21 @@
               "value": "1"
             }
           ]
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI",
+          "locked": false,
+          "name": "Money",
+          "width": 0,
+          "x": 10,
+          "y": 10,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -446,6 +465,10 @@
             {
               "name": "blown",
               "value": "0"
+            },
+            {
+              "name": "yCoord",
+              "value": "-200"
             }
           ],
           "behaviors": [
@@ -481,8 +504,8 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 320,
+                        "y": 164
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -584,14 +607,14 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 32,
+                        "y": 64
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 32,
+                        "y": 64
                       },
                       "customCollisionMask": [
                         [
@@ -642,13 +665,13 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
+                        "x": 32,
                         "y": 0
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
+                        "x": 32,
                         "y": 0
                       },
                       "customCollisionMask": [
@@ -735,6 +758,25 @@
               ]
             }
           ]
+        },
+        {
+          "bold": false,
+          "italic": false,
+          "name": "Money",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "behaviors": [],
+          "string": "Money: 0",
+          "font": "",
+          "characterSize": 20,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          }
         }
       ],
       "events": [
@@ -778,7 +820,19 @@
                 "Plane",
                 "xCoord",
                 "-",
-                "0.1"
+                "0.2*(1+abs(Plane.Angle())/90)"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Plane",
+                "=",
+                "max(Plane.Variable(yCoord),Plane.Y())"
               ],
               "subInstructions": []
             }
@@ -939,7 +993,7 @@
                 "Plane",
                 "xCoord",
                 "+",
-                "0.5"
+                "1"
               ],
               "subInstructions": []
             },
@@ -1019,9 +1073,9 @@
               },
               "parameters": [
                 "Plane",
-                "GlobalVariable(wind)",
+                "GlobalVariable(wind)*3",
                 "0",
-                ""
+                "0"
               ],
               "subInstructions": []
             },
@@ -1048,6 +1102,32 @@
                 "Plane.Direction()",
                 "9.81",
                 "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "Plane",
+                "xCoord",
+                "=",
+                "Plane.X()"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "Plane",
+                "yCoord",
+                "=",
+                "Plane.Y()"
               ],
               "subInstructions": []
             }
@@ -1435,6 +1515,131 @@
           "events": []
         },
         {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PosX"
+              },
+              "parameters": [
+                "Hoop",
+                "<",
+                "Plane.X(\"Centre\")"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "PosX"
+              },
+              "parameters": [
+                "Hoop",
+                ">",
+                "Plane.X(\"Centre\")-60"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "PosY"
+              },
+              "parameters": [
+                "Plane",
+                ">=",
+                "HoopTop.Y()"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "PosY"
+              },
+              "parameters": [
+                "Plane",
+                "<=",
+                "HoopBot.Y()"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": [],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "money",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "Money",
+                "=",
+                "\"Money: \" + ToString(GlobalVariable(money))"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Background",
+                "Hoop",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "Hoop",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
           "colorB": 228,
           "colorG": 176,
           "colorR": 74,
@@ -1483,6 +1688,18 @@
                 "Background",
                 "=",
                 "SceneWindowHeight()"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "Money",
+                "=",
+                "\"Money: \" + ToString(GlobalVariable(money))"
               ],
               "subInstructions": []
             }
@@ -1538,6 +1755,42 @@
             }
           ],
           "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Plane",
+                "Background",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Gameover\"",
+                "yes"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
         }
       ],
       "layers": [
@@ -1556,6 +1809,12 @@
               "width": 0
             }
           ],
+          "effects": []
+        },
+        {
+          "name": "UI",
+          "visibility": true,
+          "cameras": [],
           "effects": []
         }
       ],
@@ -1594,9 +1853,92 @@
       },
       "objectsGroups": [],
       "variables": [],
-      "instances": [],
-      "objects": [],
-      "events": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Restart",
+          "width": 0,
+          "x": 500,
+          "y": 300,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "bold": false,
+          "italic": false,
+          "name": "Restart",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "behaviors": [],
+          "string": "Restart",
+          "font": "",
+          "characterSize": 20,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          }
+        }
+      ],
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "MouseButtonReleased"
+              },
+              "parameters": [
+                "",
+                "Left"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "SourisSurObjet"
+              },
+              "parameters": [
+                "Restart",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Game\"",
+                "yes"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
       "layers": [
         {
           "name": "",
