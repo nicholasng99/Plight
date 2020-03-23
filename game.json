@@ -23,7 +23,7 @@
     "winExecutableIconFile": "",
     "name": "Plight",
     "author": "Nicholas",
-    "windowWidth": 800,
+    "windowWidth": 1000,
     "windowHeight": 600,
     "latestCompilationDirectory": "",
     "maxFPS": 60,
