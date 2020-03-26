@@ -145,6 +145,33 @@
         "name": "..\\Plight_Demo\\resources\\gust.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/dead_plane.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\dead_plane.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/gust_down.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\gust_down.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/hoop.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\hoop.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -158,6 +185,14 @@
     },
     {
       "name": "money",
+      "value": "0"
+    },
+    {
+      "name": "DEBUG",
+      "value": "0"
+    },
+    {
+      "name": "GHOST",
       "value": "0"
     }
   ],

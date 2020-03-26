@@ -145,6 +145,33 @@
         "name": "..\\Plight_Demo\\resources\\gust.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/dead_plane.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\dead_plane.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/gust_down.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\gust_down.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/hoop.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\hoop.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -159,6 +186,14 @@
     {
       "name": "money",
       "value": "0"
+    },
+    {
+      "name": "DEBUG",
+      "value": "1"
+    },
+    {
+      "name": "GHOST",
+      "value": "1"
     }
   ],
   "layouts": [
@@ -366,27 +401,26 @@
             },
             {
               "name": "HoopBot"
+            },
+            {
+              "name": "HoopSprite"
+            }
+          ]
+        },
+        {
+          "name": "HoopBox",
+          "objects": [
+            {
+              "name": "HoopTop"
+            },
+            {
+              "name": "HoopBot"
             }
           ]
         }
       ],
       "variables": [],
       "instances": [
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 100,
-          "layer": "",
-          "locked": false,
-          "name": "Plane",
-          "width": 200,
-          "x": 350,
-          "y": 250,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
         {
           "angle": 0,
           "customSize": false,
@@ -410,8 +444,8 @@
           "locked": false,
           "name": "Player",
           "width": 0,
-          "x": -57,
-          "y": 302,
+          "x": -227,
+          "y": 116,
           "zOrder": 2,
           "numberProperties": [
             {
@@ -473,9 +507,9 @@
           ],
           "behaviors": [
             {
-              "gravity": 1,
               "name": "PlatformerObject",
               "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "gravity": 1,
               "acceleration": 1500,
               "canGrabPlatforms": false,
               "deceleration": 1500,
@@ -491,7 +525,7 @@
           ],
           "animations": [
             {
-              "name": "",
+              "name": "alive",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -501,6 +535,50 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "..\\Plight_Demo\\resources\\plane.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 320,
+                        "y": 164
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 127,
+                            "y": 40.5
+                          },
+                          {
+                            "x": 516,
+                            "y": 112.5
+                          },
+                          {
+                            "x": 193,
+                            "y": 286.5
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "dead",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "resources\\dead_plane.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -756,6 +834,54 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "resources\\gust_down.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 75,
+                            "y": 120
+                          },
+                          {
+                            "x": 285,
+                            "y": 60
+                          },
+                          {
+                            "x": 285,
+                            "y": 260
+                          },
+                          {
+                            "x": 75,
+                            "y": 200
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -777,6 +903,45 @@
             "g": 0,
             "r": 0
           }
+        },
+        {
+          "name": "HoopSprite",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "resources\\hoop.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 32,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "events": [
@@ -833,6 +998,74 @@
                 "Plane",
                 "=",
                 "max(Plane.Variable(yCoord),Plane.Y())"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "GHOST",
+                "=",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Plane",
+                "=",
+                "150"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "GHOST",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Plane",
+                "=",
+                "255"
               ],
               "subInstructions": []
             }
@@ -1027,6 +1260,14 @@
                 "0.5"
               ],
               "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": [],
+              "subInstructions": []
             }
           ],
           "actions": [
@@ -1135,6 +1376,80 @@
           "events": []
         },
         {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Plane",
+                "HoopBox",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "GHOST",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "AddForceAL"
+              },
+              "parameters": [
+                "Plane",
+                "180-Plane.Direction()",
+                "90",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "Plane",
+                "dead",
+                "=",
+                "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ChangeAnimation"
+              },
+              "parameters": [
+                "Plane",
+                "=",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
           "colorB": 60,
           "colorG": 255,
           "colorR": 0,
@@ -1175,6 +1490,60 @@
                 "Gust",
                 "*",
                 "1.1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Gust",
+                "-",
+                "10"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Direction"
+              },
+              "parameters": [
+                "Gust",
+                ">",
+                "0"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": [],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ChangeAnimation"
+              },
+              "parameters": [
+                "Gust",
+                "=",
+                "1"
               ],
               "subInstructions": []
             }
@@ -1267,38 +1636,6 @@
             {
               "type": {
                 "inverted": false,
-                "value": "Toujours"
-              },
-              "parameters": [
-                ""
-              ],
-              "subInstructions": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "inverted": false,
-                "value": "Opacity"
-              },
-              "parameters": [
-                "Gust",
-                "-",
-                "10"
-              ],
-              "subInstructions": []
-            }
-          ],
-          "events": []
-        },
-        {
-          "disabled": false,
-          "folded": false,
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": false,
                 "value": "Opacity"
               },
               "parameters": [
@@ -1325,9 +1662,9 @@
           "events": []
         },
         {
-          "colorB": 255,
-          "colorG": 255,
-          "colorR": 255,
+          "colorB": 172,
+          "colorG": 22,
+          "colorR": 227,
           "creationTime": 0,
           "disabled": false,
           "folded": false,
@@ -1429,11 +1766,95 @@
             {
               "type": {
                 "inverted": false,
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "DEBUG",
+                "=",
+                "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": [],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Opacity"
+              },
+              "parameters": [
+                "HoopBox",
+                "=",
+                "255"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "DEBUG",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": [],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Opacity"
+              },
+              "parameters": [
+                "HoopBox",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
                 "value": "Timer"
               },
               "parameters": [
                 "",
-                "5",
+                "1",
                 "hoopTimer"
               ],
               "subInstructions": []
@@ -1455,9 +1876,35 @@
               },
               "parameters": [
                 "",
-                "HoopTop",
+                "HoopSprite",
                 "SceneWindowWidth()",
                 "RandomInRange(50, SceneWindowHeight()-230-50)",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ChangeHeight"
+              },
+              "parameters": [
+                "HoopSprite",
+                "=",
+                "200+RandomInRange(0, 2)*25"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "HoopTop",
+                "HoopSprite.X()",
+                "HoopSprite.Y()+25",
                 ""
               ],
               "subInstructions": []
@@ -1470,8 +1917,8 @@
               "parameters": [
                 "",
                 "HoopBot",
-                "SceneWindowWidth()",
-                "HoopTop.Y()+180",
+                "HoopSprite.X()",
+                "HoopTop.Y()+150+(HoopSprite.Height()-200)",
                 ""
               ],
               "subInstructions": []
@@ -1482,7 +1929,7 @@
                 "value": "ChangeHeight"
               },
               "parameters": [
-                "Hoop",
+                "HoopBox",
                 "=",
                 "25"
               ],
@@ -1494,7 +1941,7 @@
                 "value": "ChangeWidth"
               },
               "parameters": [
-                "Hoop",
+                "HoopBox",
                 "=",
                 "25"
               ],
@@ -1702,40 +2149,29 @@
                 "\"Money: \" + ToString(GlobalVariable(money))"
               ],
               "subInstructions": []
-            }
-          ],
-          "events": []
-        },
-        {
-          "disabled": false,
-          "folded": false,
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
+            },
             {
               "type": {
                 "inverted": false,
-                "value": "CollisionNP"
+                "value": "ChangeAnimation"
               },
               "parameters": [
                 "Plane",
-                "Hoop",
-                "",
-                "",
-                ""
+                "=",
+                "0"
               ],
               "subInstructions": []
-            }
-          ],
-          "actions": [
+            },
             {
               "type": {
                 "inverted": false,
-                "value": "AddForceAL"
+                "value": "Create"
               },
               "parameters": [
+                "",
                 "Plane",
-                "180-Plane.Direction()",
-                "90",
+                "350",
+                "SceneWindowHeight()/2",
                 ""
               ],
               "subInstructions": []
@@ -1743,13 +2179,12 @@
             {
               "type": {
                 "inverted": false,
-                "value": "ModVarObjet"
+                "value": "ChangeScale"
               },
               "parameters": [
                 "Plane",
-                "dead",
-                "=",
-                "1"
+                "/",
+                "4"
               ],
               "subInstructions": []
             }
