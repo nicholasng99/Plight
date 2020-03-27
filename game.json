@@ -172,6 +172,69 @@
         "name": "resources\\hoop.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/hoopCover.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\hoopCover.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/hoopOrange.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\hoopOrange.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/hoopYellow.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\hoopYellow.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/hoopOrangeCover.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\hoopOrangeCover.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/hoopYellowCover.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\hoopYellowCover.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/start.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\start.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/arm.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\arm.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -188,12 +251,28 @@
       "value": "0"
     },
     {
-      "name": "DEBUG",
+      "name": "HITBOX",
       "value": "0"
     },
     {
       "name": "GHOST",
       "value": "0"
+    },
+    {
+      "name": "distance",
+      "value": "0"
+    },
+    {
+      "name": "HOOP_SPAWN",
+      "value": "4"
+    },
+    {
+      "name": "DEV_MODE",
+      "value": "0"
+    },
+    {
+      "name": "loseMessage",
+      "value": ""
     }
   ],
   "layouts": [

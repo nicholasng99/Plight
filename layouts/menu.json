@@ -26,76 +26,90 @@
   },
   "objectsGroups": [],
   "variables": [],
-  "instances": [
-    {
-      "angle": 0,
-      "customSize": false,
-      "height": 0,
-      "layer": "",
-      "locked": false,
-      "name": "Title",
-      "width": 0,
-      "x": 400,
-      "y": 150,
-      "zOrder": 1,
-      "numberProperties": [],
-      "stringProperties": [],
-      "initialVariables": []
-    },
-    {
-      "angle": 0,
-      "customSize": false,
-      "height": 0,
-      "layer": "",
-      "locked": false,
-      "name": "Startbutton",
-      "width": 0,
-      "x": 400,
-      "y": 300,
-      "zOrder": 2,
-      "numberProperties": [],
-      "stringProperties": [],
-      "initialVariables": []
-    }
-  ],
+  "instances": [],
   "objects": [
     {
-      "bold": true,
-      "italic": false,
-      "name": "Title",
-      "smoothed": true,
+      "name": "Bg",
       "tags": "",
-      "type": "TextObject::Text",
-      "underlined": false,
+      "type": "Sprite",
+      "updateIfNotVisible": false,
       "variables": [],
       "behaviors": [],
-      "string": "Plight",
-      "font": "",
-      "characterSize": 20,
-      "color": {
-        "b": 0,
-        "g": 0,
-        "r": 0
-      }
+      "animations": [
+        {
+          "name": "",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "resources\\start.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "bold": false,
-      "italic": false,
-      "name": "Startbutton",
-      "smoothed": true,
+      "name": "Arm",
       "tags": "",
-      "type": "TextObject::Text",
-      "underlined": false,
-      "variables": [],
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [
+        {
+          "name": "swung",
+          "value": "0"
+        }
+      ],
       "behaviors": [],
-      "string": "Start",
-      "font": "",
-      "characterSize": 20,
-      "color": {
-        "b": 0,
-        "g": 0,
-        "r": 0
-      }
+      "animations": [
+        {
+          "name": "",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "resources\\arm.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": false,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "events": [
@@ -107,12 +121,34 @@
         {
           "type": {
             "inverted": false,
-            "value": "SourisSurObjet"
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "PauseTimer"
           },
           "parameters": [
-            "Startbutton",
-            "Left",
             "",
+            "\"startTimer\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "Create"
+          },
+          "parameters": [
+            "",
+            "Bg",
+            "0",
+            "0",
             ""
           ],
           "subInstructions": []
@@ -120,11 +156,278 @@
         {
           "type": {
             "inverted": false,
-            "value": "MouseButtonReleased"
+            "value": "Create"
+          },
+          "parameters": [
+            "",
+            "Arm",
+            "0",
+            "0",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangePlan"
+          },
+          "parameters": [
+            "Arm",
+            "=",
+            "Bg.ZOrder()+1"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "VarObjet"
+          },
+          "parameters": [
+            "Arm",
+            "swung",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "SourisBouton"
           },
           "parameters": [
             "",
             "Left"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "SourisSurObjet"
+          },
+          "parameters": [
+            "Arm",
+            "",
+            "",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "RotateTowardPosition"
+          },
+          "parameters": [
+            "Arm",
+            "MouseX()",
+            "MouseY()",
+            "90",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "AddForceVersPos"
+          },
+          "parameters": [
+            "Arm",
+            "0",
+            "MouseY()-100",
+            "90",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "VarObjet"
+          },
+          "parameters": [
+            "Arm",
+            "swung",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": true,
+            "value": "SourisBouton"
+          },
+          "parameters": [
+            "",
+            "Left"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "AddForceVersPos"
+          },
+          "parameters": [
+            "Arm",
+            "0",
+            "0",
+            "Arm.Y()*3",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "RotateTowardAngle"
+          },
+          "parameters": [
+            "Arm",
+            "0",
+            "Arm.Angle()*3",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Angle"
+          },
+          "parameters": [
+            "Arm",
+            ">=",
+            "30"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarObjet"
+          },
+          "parameters": [
+            "Arm",
+            "swung",
+            "=",
+            "1"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "VarObjet"
+          },
+          "parameters": [
+            "Arm",
+            "swung",
+            "=",
+            "1"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "RotateTowardAngle"
+          },
+          "parameters": [
+            "Arm",
+            "-45",
+            "AngleDifference(Arm.Angle(), -45)*3",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "AddForceVersPos"
+          },
+          "parameters": [
+            "Arm",
+            "-400",
+            "0",
+            "abs(-400-Arm.X())*3",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "UnPauseTimer"
+          },
+          "parameters": [
+            "",
+            "\"startTimer\""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Timer"
+          },
+          "parameters": [
+            "",
+            "0.8",
+            "\"startTimer\""
           ],
           "subInstructions": []
         }

@@ -36,6 +36,9 @@
         },
         {
           "name": "HoopSprite"
+        },
+        {
+          "name": "HoopCover"
         }
       ]
     },
@@ -572,8 +575,199 @@
               ]
             }
           ]
+        },
+        {
+          "name": "",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "resources\\hoopOrange.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 32,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "resources\\hoopYellow.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 32,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
         }
       ]
+    },
+    {
+      "name": "HoopCover",
+      "tags": "",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "resources\\hoopCover.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 32,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 32,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "resources\\hoopOrangeCover.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 32,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 32,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "resources\\hoopYellowCover.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 32,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 32,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DistanceDisplay",
+      "tags": "",
+      "type": "BBText::BBText",
+      "variables": [],
+      "behaviors": [],
+      "content": {
+        "text": "0.0 m",
+        "opacity": 255,
+        "fontSize": "20",
+        "visible": true,
+        "color": "#000000",
+        "fontFamily": "Arial",
+        "align": "left",
+        "wordWrap": true
+      }
+    },
+    {
+      "bold": false,
+      "italic": false,
+      "name": "Distance",
+      "smoothed": true,
+      "tags": "",
+      "type": "TextObject::Text",
+      "underlined": false,
+      "variables": [],
+      "behaviors": [],
+      "string": "0.0 m",
+      "font": "",
+      "characterSize": 20,
+      "color": {
+        "b": 0,
+        "g": 0,
+        "r": 0
+      }
     }
   ],
   "events": [
@@ -630,6 +824,71 @@
             "Plane",
             "=",
             "max(Plane.Variable(yCoord),Plane.Y())"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobal"
+          },
+          "parameters": [
+            "distance",
+            "+",
+            "0.015"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "ObjectTimer"
+          },
+          "parameters": [
+            "Plane",
+            "distanceUpdate",
+            "0.1"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::String"
+          },
+          "parameters": [
+            "Distance",
+            "=",
+            "ToString(round(GlobalVariable(distance)*100)/100) + \" m\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ResetObjectTimer"
+          },
+          "parameters": [
+            "Plane",
+            "distanceUpdate"
           ],
           "subInstructions": []
         }
@@ -1077,6 +1336,18 @@
             "1"
           ],
           "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobal"
+          },
+          "parameters": [
+            "loseMessage",
+            "=",
+            "2"
+          ],
+          "subInstructions": []
         }
       ],
       "events": []
@@ -1401,18 +1672,10 @@
             "value": "VarGlobal"
           },
           "parameters": [
-            "DEBUG",
+            "HITBOX",
             "=",
             "1"
           ],
-          "subInstructions": []
-        },
-        {
-          "type": {
-            "inverted": false,
-            "value": "BuiltinCommonInstructions::Once"
-          },
-          "parameters": [],
           "subInstructions": []
         }
       ],
@@ -1443,18 +1706,10 @@
             "value": "VarGlobal"
           },
           "parameters": [
-            "DEBUG",
+            "HITBOX",
             "=",
             "0"
           ],
-          "subInstructions": []
-        },
-        {
-          "type": {
-            "inverted": false,
-            "value": "BuiltinCommonInstructions::Once"
-          },
-          "parameters": [],
           "subInstructions": []
         }
       ],
@@ -1482,11 +1737,23 @@
         {
           "type": {
             "inverted": false,
+            "value": "VarGlobal"
+          },
+          "parameters": [
+            "HOOP_SPAWN",
+            ">",
+            "0"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
             "value": "Timer"
           },
           "parameters": [
             "",
-            "5",
+            "GlobalVariable(HOOP_SPAWN)",
             "hoopTimer"
           ],
           "subInstructions": []
@@ -1518,12 +1785,74 @@
         {
           "type": {
             "inverted": false,
+            "value": "Create"
+          },
+          "parameters": [
+            "",
+            "HoopCover",
+            "HoopSprite.X()",
+            "HoopSprite.Y()",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangeAnimation"
+          },
+          "parameters": [
+            "HoopSprite",
+            "=",
+            "RandomInRange(0, 2)"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangeAnimation"
+          },
+          "parameters": [
+            "HoopCover",
+            "=",
+            "HoopSprite.Animation()"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
             "value": "ChangeHeight"
           },
           "parameters": [
             "HoopSprite",
             "=",
-            "200+RandomInRange(0, 2)*25"
+            "200+HoopSprite.Animation()*25"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangeHeight"
+          },
+          "parameters": [
+            "HoopCover",
+            "=",
+            "HoopSprite.Height()"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangePlan"
+          },
+          "parameters": [
+            "HoopCover",
+            "=",
+            "Plane.ZOrder()+1"
           ],
           "subInstructions": []
         },
@@ -1819,6 +2148,44 @@
             "4"
           ],
           "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "Create"
+          },
+          "parameters": [
+            "",
+            "Distance",
+            "SceneWindowWidth()/2-30",
+            "550",
+            "\"UI\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobal"
+          },
+          "parameters": [
+            "loseMessage",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobal"
+          },
+          "parameters": [
+            "distance",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
         }
       ],
       "events": []
@@ -1828,6 +2195,18 @@
       "folded": false,
       "type": "BuiltinCommonInstructions::Standard",
       "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "PosY"
+          },
+          "parameters": [
+            "Plane",
+            ">",
+            "SceneWindowHeight()/2"
+          ],
+          "subInstructions": []
+        },
         {
           "type": {
             "inverted": true,
@@ -1853,6 +2232,66 @@
             "",
             "\"Gameover\"",
             "yes"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "PosY"
+          },
+          "parameters": [
+            "Plane",
+            "<=",
+            "SceneWindowHeight()/2"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": true,
+            "value": "CollisionNP"
+          },
+          "parameters": [
+            "Plane",
+            "Background",
+            "",
+            "",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Scene"
+          },
+          "parameters": [
+            "",
+            "\"Gameover\"",
+            "yes"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobal"
+          },
+          "parameters": [
+            "loseMessage",
+            "=",
+            "1"
           ],
           "subInstructions": []
         }
