@@ -16,7 +16,7 @@
     "packageName": "com.nicholas.plight",
     "projectFile": "C:\\Users\\Nick\\Documents\\GitThings\\Plight_Demo\\game.json",
     "scaleMode": "linear",
-    "sizeOnStartupMode": "adaptWidth",
+    "sizeOnStartupMode": "",
     "useExternalSourceFiles": false,
     "version": "1.0.0",
     "winExecutableFilename": "",
@@ -235,6 +235,42 @@
         "name": "resources\\arm.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/Logo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\Logo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/End.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\End.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/pickupArm.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\pickupArm.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/refresh.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\refresh.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -247,7 +283,7 @@
       "value": "-150"
     },
     {
-      "name": "money",
+      "name": "points",
       "value": "0"
     },
     {
@@ -273,6 +309,10 @@
     {
       "name": "loseMessage",
       "value": ""
+    },
+    {
+      "name": "FLOAT",
+      "value": "0.5"
     }
   ],
   "layouts": [
