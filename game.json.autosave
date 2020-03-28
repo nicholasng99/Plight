@@ -1333,7 +1333,12 @@
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "name": "scored",
+              "value": "0"
+            }
+          ],
           "behaviors": [],
           "animations": [
             {
@@ -3167,6 +3172,19 @@
             {
               "type": {
                 "inverted": false,
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "HoopTop",
+                "scored",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
                 "value": "BuiltinCommonInstructions::Once"
               },
               "parameters": [],
@@ -3174,6 +3192,19 @@
             }
           ],
           "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "HoopTop",
+                "scored",
+                "=",
+                "1"
+              ],
+              "subInstructions": []
+            },
             {
               "type": {
                 "inverted": false,
@@ -3266,6 +3297,41 @@
                 "Particles",
                 "+",
                 "0.1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Animation"
+              },
+              "parameters": [
+                "HoopSprite",
+                "=",
+                "2"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "AddForceXY"
+              },
+              "parameters": [
+                "Hoop",
+                "0",
+                "10",
+                ""
               ],
               "subInstructions": []
             }

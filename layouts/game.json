@@ -303,7 +303,12 @@
       "tags": "",
       "type": "Sprite",
       "updateIfNotVisible": false,
-      "variables": [],
+      "variables": [
+        {
+          "name": "scored",
+          "value": "0"
+        }
+      ],
       "behaviors": [],
       "animations": [
         {
@@ -2137,6 +2142,19 @@
         {
           "type": {
             "inverted": false,
+            "value": "VarObjet"
+          },
+          "parameters": [
+            "HoopTop",
+            "scored",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
             "value": "BuiltinCommonInstructions::Once"
           },
           "parameters": [],
@@ -2144,6 +2162,19 @@
         }
       ],
       "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarObjet"
+          },
+          "parameters": [
+            "HoopTop",
+            "scored",
+            "=",
+            "1"
+          ],
+          "subInstructions": []
+        },
         {
           "type": {
             "inverted": false,
