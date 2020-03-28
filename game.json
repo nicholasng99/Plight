@@ -271,6 +271,48 @@
         "name": "resources\\refresh.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "file": "sounds/blow.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sounds\\blow.mp3",
+        "userAdded": false
+      },
+      {
+        "file": "sounds/hit.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sounds\\hit.mp3",
+        "userAdded": false
+      },
+      {
+        "file": "sounds/bg.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sounds\\bg.mp3",
+        "userAdded": true
+      },
+      {
+        "file": "sounds/wind.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sounds\\wind.mp3",
+        "userAdded": false
+      },
+      {
+        "file": "sounds/point.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sounds\\point.mp3",
+        "userAdded": true
+      },
+      {
+        "file": "sounds/sleeve.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sounds\\sleeve.mp3",
+        "userAdded": false
       }
     ],
     "resourceFolders": []

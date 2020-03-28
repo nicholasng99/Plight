@@ -8,7 +8,7 @@
   "oglZNear": 1,
   "r": 209,
   "standardSortMethod": true,
-  "stopSoundsOnStartup": true,
+  "stopSoundsOnStartup": false,
   "title": "",
   "v": 209,
   "uiSettings": {
@@ -576,6 +576,14 @@
             ""
           ],
           "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
+          "subInstructions": []
         }
       ],
       "actions": [
@@ -610,6 +618,20 @@
             "\"easeOutCubic\"",
             "500",
             ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "PlaySound"
+          },
+          "parameters": [
+            "",
+            "sounds\\sleeve.mp3",
+            "",
+            "100",
+            "RandomFloatInRange(0.8, 1.2)"
           ],
           "subInstructions": []
         },

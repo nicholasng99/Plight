@@ -78,7 +78,12 @@
           "value": "0"
         }
       ],
-      "behaviors": [],
+      "behaviors": [
+        {
+          "name": "Tween",
+          "type": "Tween::TweenBehavior"
+        }
+      ],
       "animations": [
         {
           "name": "",
@@ -255,37 +260,18 @@
             "2"
           ],
           "subInstructions": []
-        }
-      ],
-      "events": []
-    },
-    {
-      "disabled": false,
-      "folded": false,
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [],
-      "actions": [
-        {
-          "type": {
-            "inverted": false,
-            "value": "ChangeHeight"
-          },
-          "parameters": [
-            "Bg",
-            "=",
-            "SceneWindowHeight()"
-          ],
-          "subInstructions": []
         },
         {
           "type": {
             "inverted": false,
-            "value": "ChangeWidth"
+            "value": "PlaySound"
           },
           "parameters": [
-            "Bg",
-            "=",
-            "SceneWindowWidth()"
+            "",
+            "sounds\\bg.mp3",
+            "yes",
+            "100",
+            "1"
           ],
           "subInstructions": []
         }
@@ -361,6 +347,75 @@
             "MouseY()-100",
             "90",
             ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "VarObjet"
+          },
+          "parameters": [
+            "Arm",
+            "swung",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "SourisBouton"
+          },
+          "parameters": [
+            "",
+            "Left"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "SourisSurObjet"
+          },
+          "parameters": [
+            "Arm",
+            "",
+            "",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "PlaySound"
+          },
+          "parameters": [
+            "",
+            "sounds\\sleeve.mp3",
+            "",
+            "100",
+            "RandomFloatInRange(0.8, 1.2)"
           ],
           "subInstructions": []
         }
@@ -480,18 +535,30 @@
             "1"
           ],
           "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
+          "subInstructions": []
         }
       ],
       "actions": [
         {
           "type": {
             "inverted": false,
-            "value": "RotateTowardAngle"
+            "value": "Tween::AddObjectPositionTween"
           },
           "parameters": [
             "Arm",
-            "-45",
-            "AngleDifference(Arm.Angle(), -45)*3",
+            "Tween",
+            "\"exit\"",
+            "-400",
+            "0",
+            "\"easeOutCubic\"",
+            "800",
             ""
           ],
           "subInstructions": []
@@ -499,13 +566,15 @@
         {
           "type": {
             "inverted": false,
-            "value": "AddForceVersPos"
+            "value": "Tween::AddObjectAngleTween"
           },
           "parameters": [
             "Arm",
-            "-400",
-            "0",
-            "abs(-400-Arm.X())*3",
+            "Tween",
+            "\"exitRotate\"",
+            "-45",
+            "\"easeOutCubic\"",
+            "800",
             ""
           ],
           "subInstructions": []
@@ -518,6 +587,20 @@
           "parameters": [
             "",
             "\"startTimer\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "PlaySound"
+          },
+          "parameters": [
+            "",
+            "sounds\\sleeve.mp3",
+            "",
+            "100",
+            "RandomFloatInRange(0.8, 1.2)"
           ],
           "subInstructions": []
         }
@@ -578,5 +661,10 @@
       "effects": []
     }
   ],
-  "behaviorsSharedData": []
+  "behaviorsSharedData": [
+    {
+      "name": "Tween",
+      "type": "Tween::TweenBehavior"
+    }
+  ]
 }
