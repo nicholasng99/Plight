@@ -3145,6 +3145,32 @@
                 "\"points: \" + ToString(GlobalVariable(points))"
               ],
               "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "DevModeText",
+                "SceneWindowWidth()-350",
+                "0",
+                "\"UI\""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::Opacity"
+              },
+              "parameters": [
+                "DevModeText",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
             }
           ],
           "events": []
@@ -3282,7 +3308,7 @@
               },
               "parameters": [
                 "",
-                "F12"
+                "F10"
               ],
               "subInstructions": []
             },
@@ -3341,11 +3367,12 @@
             {
               "type": {
                 "inverted": false,
-                "value": "Delete"
+                "value": "TextObject::Opacity"
               },
               "parameters": [
                 "DevModeText",
-                ""
+                "=",
+                "0"
               ],
               "subInstructions": []
             }
@@ -3382,14 +3409,12 @@
             {
               "type": {
                 "inverted": false,
-                "value": "Create"
+                "value": "TextObject::Opacity"
               },
               "parameters": [
-                "",
                 "DevModeText",
-                "SceneWindowWidth()-350",
-                "0",
-                "\"UI\""
+                "=",
+                "255"
               ],
               "subInstructions": []
             }
