@@ -14,7 +14,7 @@
     "macExecutableFilename": "",
     "orientation": "landscape",
     "packageName": "com.nicholas.plight",
-    "projectFile": "C:\\Users\\Nick\\Documents\\GitThings\\Plight_Demo\\game.json",
+    "projectFile": "C:\\Users\\Nick\\Documents\\GitThings\\Plight\\game.json",
     "scaleMode": "linear",
     "sizeOnStartupMode": "",
     "useExternalSourceFiles": false,
@@ -103,7 +103,7 @@
     "resources": [
       {
         "alwaysLoaded": false,
-        "file": "../Plight_Demo/resources/plane.png",
+        "file": "resources/plane.png",
         "kind": "image",
         "metadata": "",
         "name": "..\\Plight_Demo\\resources\\plane.png",
@@ -112,7 +112,7 @@
       },
       {
         "alwaysLoaded": false,
-        "file": "../Plight_Demo/resources/bg.png",
+        "file": "resources/bg.png",
         "kind": "image",
         "metadata": "",
         "name": "..\\Plight_Demo\\resources\\bg.png",
@@ -121,7 +121,7 @@
       },
       {
         "alwaysLoaded": false,
-        "file": "../Plight_Demo/resources/wind-1.png",
+        "file": "resources/wind-1.png",
         "kind": "image",
         "metadata": "",
         "name": "..\\Plight_Demo\\resources\\wind-1.png",
@@ -130,7 +130,7 @@
       },
       {
         "alwaysLoaded": false,
-        "file": "../Plight_Demo/resources/hoopBox.png",
+        "file": "resources/hoopBox.png",
         "kind": "image",
         "metadata": "",
         "name": "..\\Plight_Demo\\resources\\hoopBox.png",
@@ -139,7 +139,7 @@
       },
       {
         "alwaysLoaded": false,
-        "file": "../Plight_Demo/resources/gust.png",
+        "file": "resources/gust.png",
         "kind": "image",
         "metadata": "",
         "name": "..\\Plight_Demo\\resources\\gust.png",
