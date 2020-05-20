@@ -28,7 +28,7 @@ gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDBgObjects1Objects = Hashtable.newFrom({
 gdjs.MenuCode.condition0IsTrue_0.val = false;
 {
 {gdjs.MenuCode.conditionTrue_1 = gdjs.MenuCode.condition0IsTrue_0;
-gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7651012);
+gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7165564);
 }
 }if (gdjs.MenuCode.condition0IsTrue_0.val) {
 gdjs.MenuCode.GDArmObjects1.length = 0;
@@ -117,7 +117,7 @@ gdjs.MenuCode.condition2IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.M
 }if ( gdjs.MenuCode.condition2IsTrue_0.val ) {
 {
 {gdjs.MenuCode.conditionTrue_1 = gdjs.MenuCode.condition3IsTrue_0;
-gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7652972);
+gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7835412);
 }
 }}
 }
@@ -200,7 +200,7 @@ for(var i = 0, k = 0, l = gdjs.MenuCode.GDArmObjects1.length;i<l;++i) {
 gdjs.MenuCode.GDArmObjects1.length = k;}if ( gdjs.MenuCode.condition0IsTrue_0.val ) {
 {
 {gdjs.MenuCode.conditionTrue_1 = gdjs.MenuCode.condition1IsTrue_0;
-gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7654252);
+gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7628196);
 }
 }}
 if (gdjs.MenuCode.condition1IsTrue_0.val) {

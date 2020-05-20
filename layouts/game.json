@@ -892,6 +892,64 @@
         "g": 0,
         "r": 0
       }
+    },
+    {
+      "name": "Cloud",
+      "tags": "",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "resources\\cloud.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bold": false,
+      "italic": false,
+      "name": "pointsNotif",
+      "smoothed": true,
+      "tags": "",
+      "type": "TextObject::Text",
+      "underlined": false,
+      "variables": [],
+      "behaviors": [],
+      "string": "+",
+      "font": "",
+      "characterSize": 20,
+      "color": {
+        "b": 0,
+        "g": 0,
+        "r": 0
+      }
     }
   ],
   "events": [
@@ -1936,6 +1994,51 @@
             "0"
           ],
           "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::Opacity"
+          },
+          "parameters": [
+            "pointsNotif",
+            "-",
+            "4"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::Opacity"
+          },
+          "parameters": [
+            "pointsNotif",
+            "<=",
+            "0"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Delete"
+          },
+          "parameters": [
+            "pointsNotif",
+            ""
+          ],
+          "subInstructions": []
         }
       ],
       "events": []
@@ -2129,6 +2232,18 @@
             "value": "ChangePlan"
           },
           "parameters": [
+            "HoopSprite",
+            "=",
+            "Plane.ZOrder()-1"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangePlan"
+          },
+          "parameters": [
             "HoopCover",
             "=",
             "Plane.ZOrder()+1"
@@ -2160,6 +2275,30 @@
             "HoopSprite.X()",
             "HoopTop.Y()+150+(HoopSprite.Height()-200)",
             ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangePlan"
+          },
+          "parameters": [
+            "HoopTop",
+            "=",
+            "Plane.ZOrder()+2"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangePlan"
+          },
+          "parameters": [
+            "HoopBot",
+            "=",
+            "Plane.ZOrder()+2"
           ],
           "subInstructions": []
         },
@@ -2434,6 +2573,69 @@
             "0.1"
           ],
           "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "Create"
+          },
+          "parameters": [
+            "",
+            "pointsNotif",
+            "Plane.X()",
+            "Plane.Y()",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::String"
+          },
+          "parameters": [
+            "pointsNotif",
+            "=",
+            "\"+\"+ToString(3-HoopSprite.Animation())"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::Scale"
+          },
+          "parameters": [
+            "pointsNotif",
+            "=",
+            "2-(HoopSprite.Animation()*0.5)"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangePlan"
+          },
+          "parameters": [
+            "pointsNotif",
+            "=",
+            "Plane.ZOrder()+3"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "AddForceXY"
+          },
+          "parameters": [
+            "pointsNotif",
+            "GlobalVariable(wind)+(RandomInRange(-100, 100))",
+            "-200",
+            "1"
+          ],
+          "subInstructions": []
         }
       ],
       "events": []
@@ -2538,7 +2740,7 @@
           "parameters": [
             "Hoop",
             "<",
-            "-20"
+            "-30"
           ],
           "subInstructions": []
         },
@@ -2552,6 +2754,14 @@
             ">",
             "0"
           ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
           "subInstructions": []
         }
       ],
@@ -2588,6 +2798,164 @@
           "parameters": [
             "Hoop",
             ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "colorB": 139,
+      "colorG": 255,
+      "colorR": 0,
+      "creationTime": 0,
+      "disabled": false,
+      "folded": false,
+      "name": "bg elements",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [],
+      "parameters": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "PosX"
+          },
+          "parameters": [
+            "Cloud",
+            "<=",
+            "-Cloud.Width()"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Delete"
+          },
+          "parameters": [
+            "Cloud",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Timer"
+          },
+          "parameters": [
+            "",
+            "RandomInRange(3, 6)",
+            "\"thickSpawn\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Create"
+          },
+          "parameters": [
+            "",
+            "Cloud",
+            "SceneWindowWidth()",
+            "RandomFloat(SceneWindowHeight()*3/4)",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangePlan"
+          },
+          "parameters": [
+            "Cloud",
+            "=",
+            "Plane.ZOrder()-2"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangeScale"
+          },
+          "parameters": [
+            "Cloud",
+            "=",
+            "RandomFloatInRange(0.1, 0.25)"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "Opacity"
+          },
+          "parameters": [
+            "Cloud",
+            "=",
+            "RandomInRange(150, 255)"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "AddForceXY"
+          },
+          "parameters": [
+            "Cloud",
+            "GlobalVariable(wind)/RandomFloatInRange(1.5, 2.5)",
+            "0",
+            "1"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ResetTimer"
+          },
+          "parameters": [
+            "",
+            "\"thickSpawn\""
           ],
           "subInstructions": []
         }
@@ -2643,6 +3011,18 @@
             "Background",
             "=",
             "SceneWindowHeight()"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangePlan"
+          },
+          "parameters": [
+            "Background",
+            "=",
+            "Plane.ZOrder()-3"
           ],
           "subInstructions": []
         },
@@ -2834,6 +3214,18 @@
             "yes",
             "100",
             "1"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangePlan"
+          },
+          "parameters": [
+            "Player",
+            "=",
+            "Plane.ZOrder()+2"
           ],
           "subInstructions": []
         }

@@ -313,6 +313,15 @@
         "metadata": "",
         "name": "sounds\\sleeve.mp3",
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "resources/cloud.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "resources\\cloud.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
