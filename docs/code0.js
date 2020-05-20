@@ -20,7 +20,7 @@ gdjs.MenuCode.condition3IsTrue_1 = {val:false};
 gdjs.MenuCode.condition4IsTrue_1 = {val:false};
 
 
-gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDBgObjects1Objects = Hashtable.newFrom({"Bg": gdjs.MenuCode.GDBgObjects1});gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDArmObjects1Objects = Hashtable.newFrom({"Arm": gdjs.MenuCode.GDArmObjects1});gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDLogoObjects1Objects = Hashtable.newFrom({"Logo": gdjs.MenuCode.GDLogoObjects1});gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDArmObjects1Objects = Hashtable.newFrom({"Arm": gdjs.MenuCode.GDArmObjects1});gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDArmObjects1Objects = Hashtable.newFrom({"Arm": gdjs.MenuCode.GDArmObjects1});gdjs.MenuCode.eventsList0x5b6e18 = function(runtimeScene) {
+gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDBgObjects1Objects = Hashtable.newFrom({"Bg": gdjs.MenuCode.GDBgObjects1});gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDArmObjects1Objects = Hashtable.newFrom({"Arm": gdjs.MenuCode.GDArmObjects1});gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDLogoObjects1Objects = Hashtable.newFrom({"Logo": gdjs.MenuCode.GDLogoObjects1});gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDArmObjects1Objects = Hashtable.newFrom({"Arm": gdjs.MenuCode.GDArmObjects1});gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDArmObjects1Objects = Hashtable.newFrom({"Arm": gdjs.MenuCode.GDArmObjects1});gdjs.MenuCode.eventsList0x5b7028 = function(runtimeScene) {
 
 {
 
@@ -28,7 +28,7 @@ gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDBgObjects1Objects = Hashtable.newFrom({
 gdjs.MenuCode.condition0IsTrue_0.val = false;
 {
 {gdjs.MenuCode.conditionTrue_1 = gdjs.MenuCode.condition0IsTrue_0;
-gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7386164);
+gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7507004);
 }
 }if (gdjs.MenuCode.condition0IsTrue_0.val) {
 gdjs.MenuCode.GDArmObjects1.length = 0;
@@ -117,7 +117,7 @@ gdjs.MenuCode.condition2IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.M
 }if ( gdjs.MenuCode.condition2IsTrue_0.val ) {
 {
 {gdjs.MenuCode.conditionTrue_1 = gdjs.MenuCode.condition3IsTrue_0;
-gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7387916);
+gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7508964);
 }
 }}
 }
@@ -200,7 +200,7 @@ for(var i = 0, k = 0, l = gdjs.MenuCode.GDArmObjects1.length;i<l;++i) {
 gdjs.MenuCode.GDArmObjects1.length = k;}if ( gdjs.MenuCode.condition0IsTrue_0.val ) {
 {
 {gdjs.MenuCode.conditionTrue_1 = gdjs.MenuCode.condition1IsTrue_0;
-gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7388884);
+gdjs.MenuCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7510244);
 }
 }}
 if (gdjs.MenuCode.condition1IsTrue_0.val) {
@@ -231,7 +231,7 @@ gdjs.MenuCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.timerElapsedTi
 }
 
 
-}; //End of gdjs.MenuCode.eventsList0x5b6e18
+}; //End of gdjs.MenuCode.eventsList0x5b7028
 
 
 gdjs.MenuCode.func = function(runtimeScene) {
@@ -244,7 +244,7 @@ gdjs.MenuCode.GDArmObjects2.length = 0;
 gdjs.MenuCode.GDLogoObjects1.length = 0;
 gdjs.MenuCode.GDLogoObjects2.length = 0;
 
-gdjs.MenuCode.eventsList0x5b6e18(runtimeScene);
+gdjs.MenuCode.eventsList0x5b7028(runtimeScene);
 return;
 
 }

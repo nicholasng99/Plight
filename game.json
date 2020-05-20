@@ -14,7 +14,7 @@
     "macExecutableFilename": "",
     "orientation": "landscape",
     "packageName": "com.nicholas.plight",
-    "projectFile": "C:\\Users\\Nick\\Documents\\GitThings\\Plight\\game.json",
+    "projectFile": "C:\\Users\\Nick\\Documents\\GitHub\\Plight\\game.json",
     "scaleMode": "linear",
     "sizeOnStartupMode": "",
     "useExternalSourceFiles": false,
@@ -355,6 +355,10 @@
     {
       "name": "FLOAT",
       "value": "0.5"
+    },
+    {
+      "name": "objectCounter",
+      "value": "0"
     }
   ],
   "layouts": [

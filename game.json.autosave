@@ -14,7 +14,7 @@
     "macExecutableFilename": "",
     "orientation": "landscape",
     "packageName": "com.nicholas.plight",
-    "projectFile": "C:\\Users\\Nick\\Documents\\GitThings\\Plight\\game.json",
+    "projectFile": "C:\\Users\\Nick\\Documents\\GitHub\\Plight\\game.json",
     "scaleMode": "linear",
     "sizeOnStartupMode": "",
     "useExternalSourceFiles": false,
@@ -355,6 +355,10 @@
     {
       "name": "FLOAT",
       "value": "0.5"
+    },
+    {
+      "name": "objectCounter",
+      "value": "0"
     }
   ],
   "layouts": [
@@ -1144,6 +1148,21 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "ObjectCounter",
+          "width": 0,
+          "x": 10,
+          "y": 40,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -1337,6 +1356,10 @@
             {
               "name": "scored",
               "value": "0"
+            },
+            {
+              "name": "type",
+              "value": "0"
             }
           ],
           "behaviors": [],
@@ -1396,7 +1419,12 @@
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "name": "type",
+              "value": "0"
+            }
+          ],
           "behaviors": [],
           "animations": [
             {
@@ -1879,6 +1907,25 @@
           "zoneRadius": 10,
           "variables": [],
           "behaviors": []
+        },
+        {
+          "bold": false,
+          "italic": false,
+          "name": "ObjectCounter",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "behaviors": [],
+          "string": "Hoop Objects: 0",
+          "font": "",
+          "characterSize": 20,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          }
         }
       ],
       "events": [
@@ -2837,6 +2884,150 @@
           "disabled": false,
           "folded": false,
           "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "HoopTop",
+                "type",
+                "=",
+                "2"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "HoopBot",
+                "type",
+                "=",
+                "2"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Animation"
+              },
+              "parameters": [
+                "HoopSprite",
+                "=",
+                "2"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Animation"
+              },
+              "parameters": [
+                "HoopCover",
+                "=",
+                "2"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Hoop",
+                "+",
+                "2*cos(Hoop.X()/100)"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "HoopTop",
+                "type",
+                "=",
+                "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "HoopBot",
+                "type",
+                "=",
+                "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Animation"
+              },
+              "parameters": [
+                "HoopSprite",
+                "=",
+                "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Animation"
+              },
+              "parameters": [
+                "HoopCover",
+                "=",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Hoop",
+                "=",
+                "(cos(Hoop.X()/500)/2+1.5)"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [
             {
@@ -3105,6 +3296,56 @@
             {
               "type": {
                 "inverted": false,
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "objectCounter",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "ObjectCounter",
+                "=",
+                "\"Hoop Objects: \" + ToString(GlobalVariable(objectCounter))"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "HoopTop",
+                "type",
+                "=",
+                "HoopSprite.Animation()"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "HoopBot",
+                "type",
+                "=",
+                "HoopSprite.Animation()"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
                 "value": "ResetTimer"
               },
               "parameters": [
@@ -3225,7 +3466,7 @@
               "parameters": [
                 "Points",
                 "=",
-                "\"points: \" + ToString(GlobalVariable(points))"
+                "\"Points: \" + ToString(GlobalVariable(points))"
               ],
               "subInstructions": []
             },
@@ -3397,20 +3638,54 @@
           "conditions": [
             {
               "type": {
-                "inverted": true,
-                "value": "CollisionNP"
+                "inverted": false,
+                "value": "PosX"
               },
               "parameters": [
-                "Background",
                 "Hoop",
-                "",
-                "",
-                ""
+                "<",
+                "-20"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "objectCounter",
+                ">",
+                "0"
               ],
               "subInstructions": []
             }
           ],
           "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "objectCounter",
+                "-",
+                "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "ObjectCounter",
+                "=",
+                "\"Hoop Objects: \" + ToString(GlobalVariable(objectCounter))"
+              ],
+              "subInstructions": []
+            },
             {
               "type": {
                 "inverted": false,
@@ -3587,7 +3862,31 @@
               "parameters": [
                 "Points",
                 "=",
-                "\"points: \" + ToString(GlobalVariable(points))"
+                "\"Points: \" + ToString(GlobalVariable(points))"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "objectCounter",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "ObjectCounter",
+                "=",
+                "\"Hoop Objects: \" + ToString(GlobalVariable(objectCounter))"
               ],
               "subInstructions": []
             },
@@ -3612,6 +3911,18 @@
               },
               "parameters": [
                 "DevModeText",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::Opacity"
+              },
+              "parameters": [
+                "ObjectCounter",
                 "=",
                 "0"
               ],
@@ -3883,6 +4194,66 @@
                 "0"
               ],
               "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::Opacity"
+              },
+              "parameters": [
+                "ObjectCounter",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "GHOST",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "HOOP_SPAWN",
+                "=",
+                "4"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "FLOAT",
+                "=",
+                "0.5"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "HITBOX",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
             }
           ],
           "events": []
@@ -3914,6 +4285,18 @@
             }
           ],
           "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::Opacity"
+              },
+              "parameters": [
+                "ObjectCounter",
+                "=",
+                "255"
+              ],
+              "subInstructions": []
+            },
             {
               "type": {
                 "inverted": false,
