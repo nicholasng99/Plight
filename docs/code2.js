@@ -48,7 +48,7 @@ gdjs.GameoverCode.GDBgObjects1.createFrom(runtimeScene.getObjects("Bg"));
 gdjs.GameoverCode.condition0IsTrue_0.val = false;
 {
 {gdjs.GameoverCode.conditionTrue_1 = gdjs.GameoverCode.condition0IsTrue_0;
-gdjs.GameoverCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7455820);
+gdjs.GameoverCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7594636);
 }
 }if (gdjs.GameoverCode.condition0IsTrue_0.val) {
 gdjs.GameoverCode.GDBgObjects1.length = 0;
@@ -156,7 +156,7 @@ gdjs.GameoverCode.condition1IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if ( gdjs.GameoverCode.condition1IsTrue_0.val ) {
 {
 {gdjs.GameoverCode.conditionTrue_1 = gdjs.GameoverCode.condition2IsTrue_0;
-gdjs.GameoverCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(8058428);
+gdjs.GameoverCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(7963908);
 }
 }}
 }
