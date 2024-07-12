@@ -1,6 +1,6 @@
 # Plight
 ![Plight Logo](resources/Logob.png)
-**P**aper F**light** game with [GDevelop](https://gdevelop-app.com/), play [here](https://nihilistnun.github.io/Plight/)  
+**P**aper F**light** game with [GDevelop](https://gdevelop-app.com/), play [here](https://nicholasng99.github.io/Plight/)  
 **F10** for developer tools  
 All audio is obtained from [ZapSplat](www.zapsplat.com)
 
